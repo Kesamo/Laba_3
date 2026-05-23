@@ -1,0 +1,18 @@
+add_executable(run_tests_lab3
+    test_Stack.cpp
+)
+
+target_include_directories(run_tests_lab3 PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/Structur
+)
+
+target_link_libraries(run_tests_lab3 PRIVATE
+    lab2_core
+    lab2_sequences
+    lab2_seqarray
+    lab2_seqlist
+    gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(run_tests_lab3)

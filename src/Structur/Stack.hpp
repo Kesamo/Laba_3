@@ -1,0 +1,41 @@
+#pragma once
+#include <concepts>
+#include "Sequence.hpp"
+#include "SequenceArray/MutableSequenceArray.hpp"
+
+template <typename Storage, class T>
+concept StackConcept = requires(Storage cont, const Storage constcont, T item){
+     Storage{};
+
+     cont.append(item);
+     cont.RemoveLast();
+
+     {constcont.GetLength()} -> std::convertible_to<size_t>;
+     {constcont.GetLast()} -> std::convertible_to<T>;
+
+     constcont.begin();
+     constcont.end();
+};
+
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+class Stack{
+private:
+     Storage<T> data;
+
+public:
+     Stack() = default;
+     Stack(const std::initializer_list<T> init);
+     // Stack(const Storage& other);
+     Stack(T* item, size_t count);
+
+     T top();
+     T pop();
+
+     void push(const T& value);
+
+
+};
+
+#include "Stack.tpp"
