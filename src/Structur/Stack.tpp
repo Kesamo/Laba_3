@@ -48,14 +48,15 @@ size_t Stack<Storage, T>::size(){
     return data.GetLength();
 }
 
-// template<template<class> class Storage, class T>
-// requires StackConcept<Storage<T>, T>
-// auto Stack<Storage, T>::map(T (*func)(T)) const{
-//     Stack<Storage,T> res;
-//     for(auto item : *this){
-
-//     }
-// }
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage, T>::map(T (*func)(T)) const{
+    Stack<Storage,T> res;
+    for(auto item : data){
+        res.push(func(item));
+    }
+    return res;
+}
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>

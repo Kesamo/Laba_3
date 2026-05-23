@@ -73,3 +73,11 @@ TEST(StackIterator,  range_based){
         EXPECT_EQ(item, i++);
     }
 }
+
+TEST(StackFunctional, Map){
+    Stack<MutableSequenceArray, int> s{1, 2, 3};
+    auto m = s.map([](int x) { return x * 10; });
+    EXPECT_EQ(m.pop(), 30);
+    EXPECT_EQ(m.pop(), 20);
+    EXPECT_EQ(m.pop(), 10);
+}
