@@ -37,6 +37,13 @@ public:
      bool empty() const;
      size_t size();
 
+     // auto map(T (*func)(T)) const:
+
+     auto begin();
+     auto end();
+
+     auto begin() const;
+     auto end() const;
 
 };
 

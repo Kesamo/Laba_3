@@ -47,3 +47,36 @@ requires StackConcept<Storage<T>, T>
 size_t Stack<Storage, T>::size(){
     return data.GetLength();
 }
+
+// template<template<class> class Storage, class T>
+// requires StackConcept<Storage<T>, T>
+// auto Stack<Storage, T>::map(T (*func)(T)) const{
+//     Stack<Storage,T> res;
+//     for(auto item : *this){
+
+//     }
+// }
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage, T>::begin(){
+    return data.begin();
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage, T>::end(){
+    return data.end();
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage, T>::begin() const{
+    return data.begin();
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage, T>::end() const{
+    return data.end();
+}

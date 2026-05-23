@@ -65,3 +65,11 @@ TEST(StackInitList, PushandTop){
     s.pop();
     EXPECT_EQ(s.top(), 2);
 }
+
+TEST(StackIterator,  range_based){
+    int i = 1;
+    Stack<MutableSequenceArray, int> s {1,2,3,4};
+    for(auto item : s){
+        EXPECT_EQ(item, i++);
+    }
+}
