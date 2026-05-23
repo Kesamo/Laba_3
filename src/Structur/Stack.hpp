@@ -35,6 +35,7 @@ public:
      T pop();
      void push(const T& value);
      bool empty() const;
+     size_t size();
 
 
 };

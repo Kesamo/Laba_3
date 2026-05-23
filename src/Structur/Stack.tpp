@@ -42,3 +42,8 @@ bool Stack<Storage, T>::empty() const{
     return data.GetLength() == 0;
 }
 
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+size_t Stack<Storage, T>::size(){
+    return data.GetLength();
+}

@@ -28,3 +28,12 @@ TEST(StackBasic, Empty){
     Stack<MutableSequenceArray, int> s;
     EXPECT_TRUE(s.empty());
 }
+
+TEST(StackBasic, Size){
+    Stack<MutableSequenceArray, int> s;
+    EXPECT_EQ(s.size(), 0);
+    s.push(1);
+    EXPECT_EQ(s.size(), 1);
+    s.push(2);
+    EXPECT_EQ(s.size(), 2);
+}
