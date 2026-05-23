@@ -38,6 +38,7 @@ public:
      size_t size();
 
      auto map(T (*func)(T)) const;
+     auto were(bool (*pred)(T)) const;
 
      auto begin();
      auto end();

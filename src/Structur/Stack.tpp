@@ -60,6 +60,18 @@ auto Stack<Storage, T>::map(T (*func)(T)) const{
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
+auto Stack<Storage,T>::were(bool (*pred)(T)) const{
+    Stack<Storage, T> res;
+    for(auto item : data){
+        if(pred(item)){
+            res.push(item);
+        }
+    }
+    return res;
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
 auto Stack<Storage, T>::begin(){
     return data.begin();
 }

@@ -81,3 +81,12 @@ TEST(StackFunctional, Map){
     EXPECT_EQ(m.pop(), 20);
     EXPECT_EQ(m.pop(), 10);
 }
+
+TEST(StackFunctional, Were){
+    Stack<MutableSequenceArray, int> s{1 , 2 , 3 , 4 , 5 , 6};
+    auto w = s.were([](int x) { return x % 2 == 0;});
+    EXPECT_EQ(w.size(), 3);
+    EXPECT_EQ(w.pop(), 6);
+    EXPECT_EQ(w.pop(), 4);
+    EXPECT_EQ(w.pop(), 2);
+}
