@@ -35,13 +35,14 @@ public:
      T pop();
      void push(const T& value);
      bool empty() const;
-     size_t size();
+     size_t size() const;
 
      auto map(T (*func)(T)) const;
      auto were(bool (*pred)(T)) const;
      auto reduce(T (*func)(T, T), T starter) const;
 
      auto Concat(const Stack& other) const;
+     auto GetSubsequence(size_t startIndex, size_t endIndex) const;
 
      auto begin();
      auto end();

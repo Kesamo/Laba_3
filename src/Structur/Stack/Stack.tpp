@@ -44,7 +44,7 @@ bool Stack<Storage, T>::empty() const{
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
-size_t Stack<Storage, T>::size(){
+size_t Stack<Storage, T>::size() const{
     return data.GetLength();
 }
 
@@ -89,6 +89,26 @@ auto Stack<Storage,T>::Concat(const Stack& other) const {
     }
     for (auto item : other.data){
         res.push(item);
+    }
+    return res;
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+auto Stack<Storage,T>::GetSubsequence(size_t startIndex, size_t endIndex) const {
+    if (startIndex > endIndex || endIndex >= size()){
+        throw InvalidRangeException(startIndex, endIndex);
+    }
+    Stack res;
+    size_t i = 0;
+    for (auto item : data){
+        if (i > endIndex){
+            break;
+        }
+        if (i >= startIndex){
+            res.push(item);
+        }
+        ++i;
     }
     return res;
 }

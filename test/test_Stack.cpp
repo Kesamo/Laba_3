@@ -107,3 +107,18 @@ TEST(StackFunctional, Concat) {
     EXPECT_EQ(ab.pop(), 2);
     EXPECT_EQ(ab.pop(), 1);
 }
+
+TEST(StackFunctional, GetSubsequence) {
+    Stack<MutableSequenceArray, int> s{1, 2, 3, 4, 5};
+    auto sub = s.GetSubsequence(1, 3);
+    EXPECT_EQ(sub.size(), 3);
+    EXPECT_EQ(sub.pop(), 4);
+    EXPECT_EQ(sub.pop(), 3);
+    EXPECT_EQ(sub.pop(), 2);
+}
+
+TEST(StackFunctional, SubsequenceBadRangeThrows) {
+    Stack<MutableSequenceArray, int> s{1, 2, 3};
+    EXPECT_THROW(s.GetSubsequence(2, 1), InvalidRangeException);
+    EXPECT_THROW(s.GetSubsequence(0, 10), InvalidRangeException);
+}
