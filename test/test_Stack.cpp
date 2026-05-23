@@ -22,3 +22,9 @@ TEST(StackBasic, PushandTop){
     s.push(3);
     EXPECT_EQ(s.top(), 3);
 }
+
+
+TEST(StackBasic, Empty){
+    Stack<MutableSequenceArray, int> s;
+    EXPECT_TRUE(s.empty());
+}

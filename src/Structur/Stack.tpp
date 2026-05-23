@@ -10,6 +10,10 @@ Stack<Storage, T>::Stack(const std::initializer_list<T> init) {
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
+Stack<Storage,T>::Stack(const Storage<T>& other) : data(new Storage<T>(other)) {}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
 T Stack<Storage, T>::top() {
     if(data.GetLength() == 0){
         //TODO:Обработка ошибки
@@ -31,3 +35,10 @@ requires StackConcept<Storage<T>, T>
 void Stack<Storage, T>::push(const T& value){
     data.append(value);
 }
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
+bool Stack<Storage, T>::empty() const{
+    return data.GetLength() == 0;
+}
+

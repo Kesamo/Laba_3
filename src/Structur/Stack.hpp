@@ -6,6 +6,7 @@
 template <typename Storage, class T>
 concept StackConcept = requires(Storage cont, const Storage constcont, T item){
      Storage{};
+     Storage{constcont};
 
      cont.append(item);
      cont.RemoveLast();
@@ -27,13 +28,13 @@ private:
 public:
      Stack() = default;
      Stack(const std::initializer_list<T> init);
-     // Stack(const Storage& other);
+     Stack(const Storage<T>& other);
      Stack(T* item, size_t count);
 
      T top();
      T pop();
-
      void push(const T& value);
+     bool empty() const;
 
 
 };
