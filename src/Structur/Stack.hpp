@@ -41,6 +41,8 @@ public:
      auto were(bool (*pred)(T)) const;
      auto reduce(T (*func)(T, T), T starter) const;
 
+     auto Concat(const Stack& other) const;
+
      auto begin();
      auto end();
 

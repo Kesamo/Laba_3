@@ -82,6 +82,19 @@ auto Stack<Storage,T>::reduce(T (*func)(T, T), T starter) const{
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
+auto Stack<Storage,T>::Concat(const Stack& other) const {
+    Stack res;
+    for (auto item : data){
+        res.push(item);
+    }
+    for (auto item : other.data){
+        res.push(item);
+    }
+    return res;
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
 auto Stack<Storage, T>::begin(){
     return data.begin();
 }

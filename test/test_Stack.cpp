@@ -96,3 +96,14 @@ TEST(StackFunctional, Resduce){
     int sum = s.reduce([](int a, int b) { return a + b;}, 0);
     EXPECT_EQ(sum, 10);
 }
+
+TEST(StackFunctional, Concat) {
+    Stack<MutableSequenceArray, int> a{1, 2};
+    Stack<MutableSequenceArray, int> b{3, 4};
+    auto ab = a.Concat(b);
+    EXPECT_EQ(ab.size(), 4);
+    EXPECT_EQ(ab.pop(), 4);
+    EXPECT_EQ(ab.pop(), 3);
+    EXPECT_EQ(ab.pop(), 2);
+    EXPECT_EQ(ab.pop(), 1);
+}
