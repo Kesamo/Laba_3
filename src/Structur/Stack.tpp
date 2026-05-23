@@ -72,6 +72,16 @@ auto Stack<Storage,T>::were(bool (*pred)(T)) const{
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
+auto Stack<Storage,T>::reduce(T (*func)(T, T), T starter) const{
+    T res = starter;
+    for(auto item : data){
+        res = func(res, item);
+    }
+    return res;
+}
+
+template<template<class> class Storage, class T>
+requires StackConcept<Storage<T>, T>
 auto Stack<Storage, T>::begin(){
     return data.begin();
 }

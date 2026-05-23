@@ -90,3 +90,9 @@ TEST(StackFunctional, Were){
     EXPECT_EQ(w.pop(), 4);
     EXPECT_EQ(w.pop(), 2);
 }
+
+TEST(StackFunctional, Resduce){
+    Stack<MutableSequenceArray, int> s{1 , 2 , 3 , 4};
+    int sum = s.reduce([](int a, int b) { return a + b;}, 0);
+    EXPECT_EQ(sum, 10);
+}
