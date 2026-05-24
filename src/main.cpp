@@ -1,4 +1,4 @@
-#include "UI/AppUI.hpp"
+#include "UI/view.hpp"
 #include <iostream>
 
 int main(){
