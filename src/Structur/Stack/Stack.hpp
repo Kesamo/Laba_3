@@ -43,6 +43,7 @@ public:
 
      auto Concat(const Stack& other) const;
      auto GetSubsequence(size_t startIndex, size_t endIndex) const;
+     // bool serch(Stack<Storage, T> sub) const;
 
      auto begin();
      auto end();

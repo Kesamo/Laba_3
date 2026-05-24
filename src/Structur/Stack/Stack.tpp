@@ -113,6 +113,24 @@ auto Stack<Storage,T>::GetSubsequence(size_t startIndex, size_t endIndex) const 
     return res;
 }
 
+// template<template<class> class Storage, class T>
+// requires StackConcept<Storage<T>, T>
+// bool Stack<Storage, T>::serch(Stack<Storage, T> sub) const{
+//     if (sub.size() > size()) return false;
+//     if (sub.empty()) return true;
+    
+//     size_t n = size();
+//     size_t m = sub.size();
+
+//     for(size_t  start = 0; start + m <= n; ++start){
+//         bool flag = true;
+//         size_t i = 0;
+//         for(auto x : c){
+//         }
+//     }
+
+// }
+
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
 auto Stack<Storage, T>::begin(){
