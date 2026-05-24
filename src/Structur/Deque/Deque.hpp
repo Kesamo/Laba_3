@@ -2,14 +2,16 @@
 #include <concepts>
 #include <initializer_list>
 #include <stdexcept>
+#include "Sequence.hpp"
+#include "SequenceArray/MutableSequenceArray.hpp"
 
 template <typename Storage, class T>
 concept DequeConcept = requires(Storage cont, const Storage constcont, T item){
     Storage{};
     Storage{constcont};
 
-    cont.Append(item);
-    cont.Prepend(item);
+    cont.append(item);
+    cont.prepend(item);
     cont.RemoveLast();
     cont.RemoveFirst(); 
 
@@ -28,7 +30,7 @@ private:
     Storage<T> data;
 
 public:
-    Deque();
+    Deque() = default;
     Deque(const std::initializer_list<T> init);
     Deque(const Storage<T>& other);
     Deque(T* item, size_t count);
@@ -49,7 +51,7 @@ public:
     auto where(bool (*pred)(T)) const;
     auto reduce(T (*func)(T, T), T starter) const;
 
-    auto Concat(const Stack& other) const;
+    auto Concat(const Deque& other) const;
     auto GetSubsequence(size_t startIndex, size_t endIndex) const;
     // bool serch(Stack<Storage, T> sub) const;
 
@@ -60,3 +62,5 @@ public:
     auto end() const;
 
 };
+
+#include "Deque.tpp"

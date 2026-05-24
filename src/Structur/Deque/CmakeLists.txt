@@ -1,0 +1,2 @@
+add_library(lab3_Deque INTERFACE)
+target_include_directories(lab3_Deque INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})

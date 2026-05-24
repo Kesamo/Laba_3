@@ -1,5 +1,5 @@
-add_library(lab3_Struct INTERFACE)
-target_include_directories(lab3_Struct INTERFACE 
+add_library(lab3_Stack INTERFACE)
+target_include_directories(lab3_Stack INTERFACE 
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/../my_lab/src/sequences
     ${CMAKE_CURRENT_SOURCE_DIR}/../my_lab/src/sequences/SequenceArray

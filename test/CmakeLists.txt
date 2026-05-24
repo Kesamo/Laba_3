@@ -1,9 +1,12 @@
 add_executable(run_tests_lab3
     test_Stack.cpp
+    test_Deque.cpp
 )
 
 target_include_directories(run_tests_lab3 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/Structur
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/Structur/Deque
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/Structur/Stack
 )
 
 target_link_libraries(run_tests_lab3 PRIVATE
