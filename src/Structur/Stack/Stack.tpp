@@ -10,7 +10,7 @@ Stack<Storage, T>::Stack(const std::initializer_list<T> init) {
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
-Stack<Storage,T>::Stack(const Storage<T>& other) : data(new Storage<T>(other)) {}
+Stack<Storage,T>::Stack(const Storage<T>& other) : data(other) {}
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
@@ -60,7 +60,7 @@ auto Stack<Storage, T>::map(T (*func)(T)) const{
 
 template<template<class> class Storage, class T>
 requires StackConcept<Storage<T>, T>
-auto Stack<Storage,T>::were(bool (*pred)(T)) const{
+auto Stack<Storage,T>::where(bool (*pred)(T)) const{
     Stack<Storage, T> res;
     for(auto item : data){
         if(pred(item)){

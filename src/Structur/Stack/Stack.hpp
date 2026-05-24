@@ -38,7 +38,7 @@ public:
      size_t size() const;
 
      auto map(T (*func)(T)) const;
-     auto were(bool (*pred)(T)) const;
+     auto where(bool (*pred)(T)) const;
      auto reduce(T (*func)(T, T), T starter) const;
 
      auto Concat(const Stack& other) const;
