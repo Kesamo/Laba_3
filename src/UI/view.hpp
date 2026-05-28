@@ -8,6 +8,8 @@
 #include <ftxui/component/component_options.hpp>
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/color.hpp>
+#include "Panel/HanoiPanel.hpp"
+#include "Panel/StackPanel.hpp"
 
 using namespace ftxui;
 using namespace std::chrono_literals;
@@ -36,6 +38,11 @@ private:
     Component tab_content;
     Component exit_button;
     Component main_renderer;
+    Component hanoi_tab;
+    Component stack_tab;
+
+    HanoiPanel hanoi_panel;
+    StackPanel stack_panel;
 
 public:
     void Run(){
@@ -46,7 +53,12 @@ public:
         tab_opt.underline.SetAnimationDuration(250ms);
         tab_menu = Menu(&tab_names, &tab_idx, tab_opt);
 
+        hanoi_tab = hanoi_panel.build();
+        stack_tab = stack_panel.build();
+
         tab_content = Container::Tab({ 
+            hanoi_tab,
+            stack_tab
         }, &tab_idx);
 
         exit_button = Button("Выход", screen.ExitLoopClosure(), ButtonStyle());
