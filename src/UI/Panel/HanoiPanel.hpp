@@ -145,6 +145,9 @@ private:
             if (!model.solved){
                 return;
             }
+            if (model.current_step == model.totalSteps()){
+                return;
+            }
             model.auto_playing = !model.auto_playing;
             if (model.auto_playing) {
                 if (model.current_step >= model.totalSteps())
@@ -181,6 +184,7 @@ private:
         });
 
         auto ctrl_bar = Container::Horizontal({prev_btn, next_btn});
+        
         right_panel = Renderer(ctrl_bar, [&, ctrl_bar] {
             if (model.auto_playing) {
                 if (model.current_step >= model.totalSteps()) {

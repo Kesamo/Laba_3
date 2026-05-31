@@ -21,8 +21,6 @@ private:
     std::vector<std::string> tab_names = {
         " Ханойские башни ",
         " Стек ",
-        " Дек ",
-        " Матрица ",
     };
 
     ButtonOption ButtonStyle() {
